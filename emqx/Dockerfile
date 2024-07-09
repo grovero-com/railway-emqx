@@ -1,6 +1,9 @@
 FROM docker.io/library/emqx:5
 #TODO(sm): include TLS certificates
 
+COPY emqx.conf /opt/emqx/etc/emqx.conf
+COPY acl.conf /opt/emqx/etc/
+
 COPY docker-entrypoint.sh /usr/bin/
 COPY docker-healthcheck /usr/local/bin/
 

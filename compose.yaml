@@ -1,0 +1,9 @@
+services:
+  emqx:
+    image: grovero/emqx:latest
+    build:
+      context: ./emqx
+    container_name: emqx
+    # hostname: emqx.grovero.com
+    network_mode: host
+    env_file: ./emqx/env.local

@@ -35,14 +35,16 @@ in {
     echo "Running tests"
   '';
 
+  scripts.start-app.exec = "python $DEVENV_ROOT/main.py \"$@\"";
+
   # https://devenv.sh/services/
-  services.postgres = {
-    enable = true;
-    listen_addresses = "127.0.0.1";
-    initialDatabases = [
-      { name = "mqtt"; schema = ./mqtt-schema.sql; }
-    ];
-  };
+  # services.postgres = {
+  #   enable = true;
+  #   listen_addresses = "127.0.0.1";
+  #   initialDatabases = [
+  #     { name = "mqtt"; schema = ./mqtt-schema.sql; }
+  #   ];
+  # };
 
   # https://devenv.sh/languages/
   # languages.nix.enable = true;
